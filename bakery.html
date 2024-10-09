@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUILD YOUR CAKES!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px; 
+            background-image: url(okies.jpg);
+            background-size: cover;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, textarea {
+            padding: 8px;
+            font-size: 16px;
+        }
+        .button-container {
+            display: flex; /* Use flexbox to align buttons */
+            gap: 10px; /* Space between buttons */
+        }
+        .button-container input {
+            flex: 1; /* Make buttons equal size */
+            padding: 10px; /* Standard padding for buttons */
+            font-size: 16px; /* Standard font size for buttons */
+        }
+        .bakery-hours {
+            margin-top: 30px;
+            font-size: 18px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .responsive {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        @media (max-width: 600px) {
+            form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Order Your Custom Cake</h1>
+
+        <form>
+            <!-- Cake Flavor -->
+            <label for="flavor">Select Cake Flavor (Choose up to 3):</label>
+            <p style="font-size: 12px; color: rgb(156, 23, 23);">Hold down the Ctrl (Windows)</p>
+            <select id="flavor" name="flavor[]" multiple required>
+                <option value="chocolate">Chocolate</option>
+                <option value="vanilla">Vanilla</option>
+                <option value="red velvet">Red Velvet</option>
+                <option value="strawberry">Strawberry</option>
+                <option value="Coffe">Coffe</option>
+                <option value="Dark Chocolate">Dark Chocolate</option>
+                <option value="White Chocolate">White Chocolate</option>
+            </select>
+
+            <!-- Cake Sizing -->
+            <label for="size">Choose Cake Size:</label>
+            <select id="size" name="size" required>
+                <option value="6inch">6 inches</option>
+                <option value="8inch">8 inches</option>
+                <option value="10inch">10 inches</option>
+                <option value="12inch">12 inches</option>
+            </select>
+
+            <!-- Cake Design -->
+            <label for="design">Design Specifications:</label>
+            <textarea id="design" name="design" rows="5" placeholder="Describe your design here..."></textarea>
+        
+            <label for="image">Picture of the Design:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <!-- Contact Information -->
+            <label for="contact">Provide Your Contact Information:</label>
+            <input type="text" id="contact" name="contact" placeholder="Your phone number or email address" required>
+
+            <!-- Button Container -->
+            <div class="button-container">
+                <input type="submit" value="Submit Order">
+                <input type="button" value="Cancel Order" onclick="cancelOrder()">
+            </div>
+        </form>
+
+        <!-- Bakery Hours -->
+        <div class="bakery-hours">
+            <h2>Bakery Hours</h2>
+            <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+            <p>Saturday: 9:00 AM - 5:00 PM</p>
+            <p>Sunday: Closed</p>
+        </div>
+    </div>
+
+    <script>
+        function cancelOrder() {
+            // Clear the form fields
+            document.querySelector('form').reset();
+        }
+    </script>
+</body>
+</html>
